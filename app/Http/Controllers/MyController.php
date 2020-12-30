@@ -68,7 +68,7 @@ class MyController extends Controller
 
         $cls->save();
 
-        return redirect()->back()->with('msg',"class is saved");
+        return redirect()->back()->with('msg',"class is update");
     }
 
     public function getclass(){
@@ -79,7 +79,7 @@ class MyController extends Controller
 
 
     public function editclass(Request $req) {
-        DB::table('clas')->where('id' , $req->eid)->update([
+        DB::table('clas')->where('id' , $req->ECId)->update([
             'class_name' => $req->ECName,
             'class_type' => $req->ECType,
             'class_year' => $req->ECYear,
@@ -88,5 +88,12 @@ class MyController extends Controller
         ]);
 
         return redirect()->back()->with('msg',"class is saved");
+    }
+
+    public function delete($i)  //passing variable
+    {
+        DB::table('clas')->where('id',$i)->delete();
+        
+        return redirect()->back()->with('msg',"class is delete");
     }
 }

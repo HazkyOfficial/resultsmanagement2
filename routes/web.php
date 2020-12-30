@@ -34,3 +34,4 @@ Route::get('/contact',[MyController::class, 'contact']);
 //Data Connection============================================
 Route::post('addclass',[MyController::class,'addclass']);
 Route::post('editclass',[MyController::class,'editclass']);
+Route::get('delete/{c}',[MyController::class,'delete'])->name('delete'); //{c} = Passing variable

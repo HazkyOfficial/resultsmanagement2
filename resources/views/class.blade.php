@@ -135,16 +135,17 @@
                     </div>  
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Class Year:</label>
-                        <input type="text" class="form-control" id="" id="ECYear" name="ECYear" placeholder="Enter class year">
+                        <input type="text" class="form-control" id="ECYear" name="ECYear" placeholder="Enter class year">
                     </div>  
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Class Teacher Name:</label>
-                        <input type="text" class="form-control" id="" id="ECTName" name="ECTName" placeholder="Enter class teacher name">
+                        <input type="text" class="form-control" id="ECTName" name="ECTName" placeholder="Enter class teacher name">
                     </div> 
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      
+                      <button type="submit" class="btn btn-primary">Save changes</button>
                      
                 </form>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
         </div>
@@ -210,7 +211,7 @@
                           <input type="hidden" id="type<?php echo $k; ?>" value="{{$cls->class_type}}">
                           <input type="hidden" id="year<?php echo $k; ?>" value="{{$cls->class_year}}">
                           <input type="hidden" id="teacher<?php echo $k; ?>" value="{{$cls->class_teacher}}">
-                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                            <a  href="{{route('delete',$cls->id)}}" class="btn btn-danger btn-sm">Delete</a> <!-- $cls->id = passing variable-->
                             <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" onclick="edit(<?php echo $k; ?>)" data-bs-target="#edit">Edit</button>
                             
                         </td>

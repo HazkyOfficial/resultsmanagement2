@@ -68,7 +68,7 @@ class MyController extends Controller
 
         $cls->save();
 
-        return redirect()->back()->with('msg',"class is update");
+        return redirect()->back()->with('msg',"class is saved");
     }
 
     public function getclass(){
@@ -87,7 +87,7 @@ class MyController extends Controller
             
         ]);
 
-        return redirect()->back()->with('msg',"class is saved");
+        return redirect()->back()->with('msg',"class is updated");
     }
 
     public function delete($i)  //passing variable

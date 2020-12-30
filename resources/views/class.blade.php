@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
     <script src="{{ asset('js/propper.min.js')}}"></script>
     <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>Class Page</title>
 </head>
 <body>
@@ -55,6 +57,38 @@
         </div>
       </nav>
 
+    <!-- Message Part -->
+    <script src="sweetalert2.all.min.js"></script>
+    @if($msg = session()->get('msg'))
+    <script>
+          const Toast = Swal.mixin({
+          toast: true,
+          position: 'bottom-end',
+          showConfirmButton: false,
+          timer: 5000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+          })
+          Toast.fire({
+            icon: 'success',
+            title: '{{$msg}}'
+          })
+
+          // Swal.fire({
+          //   position: 'top-end',
+          //   icon: 'success',
+          //   title: '{{$msg}}',
+          //   showConfirmButton: false,
+          //   timer: 1500
+          // })
+    </script>
+    @endif
+
+
+
     <!-- Model part -->
     <!-- Add Modal -->
     <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -65,14 +99,12 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            
                 <form action="/addclass" method="post">
                 @csrf
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Class Name:</label>
                       <input type="text" class="form-control" id="" name="CName" placeholder="Enter class name">
-                    </div>
-                    
+                    </div>  
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Class Type:</label>
                         <select class="form-select form-select mb-3" name="CType">
@@ -87,7 +119,6 @@
                         <label for="exampleInputEmail1" class="form-label">Class Year:</label>
                         <input type="text" class="form-control" id="" name="CYear" placeholder="Enter class year">
                     </div>  
-
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Class Teacher Name:</label>
                         <input type="text" class="form-control" id="" name="CTName" placeholder="Enter class teacher name">
@@ -97,9 +128,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                     </div> 
-                </form>
-
-            
+                </form>       
         </div>
         </div>
     </div>
@@ -142,8 +171,7 @@
                         <input type="text" class="form-control" id="ECTName" name="ECTName" placeholder="Enter class teacher name">
                     </div> 
                       
-                      <button type="submit" class="btn btn-primary">Save changes</button>
-                     
+                      <button type="submit" class="btn btn-primary">Save changes</button>      
                 </form>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>

@@ -195,11 +195,25 @@
       }
     </script>
 
-    <!-- Table Part -->
-    <div class="card">
-        <p class="card-header"><b> Menu / Class</b></p>
-    </div>
-    <br>
+  <!-- Alert Part -->
+
+      <div class="card">
+          <p class="card-header"><b> Menu / Class</b></p>
+      </div>
+      <br>
+
+      <div class="container mt-2">
+        @if($errors->any())
+          @foreach($errors->all()  as $error)
+            <div class="alert alert-danger" role="alert">
+              {{$error}}
+            </div>
+          @endforeach
+        @endif
+      </div>
+
+
+      <!-- Table Part -->
       <div class="container">
           <div class="jumbotrom">
             <div class="card">

@@ -57,10 +57,18 @@ class MyController extends Controller
 
     public function addclass(Request $req)
     {
+        $req->validate([
+            'CName'=>'required|min:4',
+
+        ],[
+            'CName.required'=>'Class name is must',
+            'CName.min'=>'Minimum 4 letters must'
+        
+        ]);
+
         $cnt = count(DB::table('clas')->get());
         
         $cls = new clas;
-        
         $cls->class_name = $req->CName;
         $cls->class_type = $req->CType;
         $cls->class_year = $req->CYear;

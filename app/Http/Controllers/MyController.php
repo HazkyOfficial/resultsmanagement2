@@ -59,10 +59,25 @@ class MyController extends Controller
     {
         $req->validate([
             'CName'=>'required|min:4',
+            'CType'=>'required',
+            'CYear'=>'required|max:4',
+            'CTName'=>'required',
+            
 
         ],[
+            //Class name
             'CName.required'=>'Class name is must',
-            'CName.min'=>'Minimum 4 letters must'
+            'CName.min'=>'Minimum 4 letters must',
+
+            //Class Type
+            'CType.required'=>'Please select class type',
+
+            //Class Year
+            'CYear.required'=>'Class year is must',
+            'CYear.max'=>'Year is only 4 letters',
+
+
+            'CTName.required'=>'Class teacher name is must',
         
         ]);
 

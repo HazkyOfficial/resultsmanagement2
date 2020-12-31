@@ -65,19 +65,19 @@ class MyController extends Controller
             
 
         ],[
-            //Class name
-            'CName.required'=>'Class name is must',
-            'CName.min'=>'Minimum 4 letters must',
+            //Class name Add
+            'CName.required'=>'Class Name is must',
+            'CName.min'=>'Class Name Minimum 4 letters must',
 
-            //Class Type
-            'CType.required'=>'Please select class type',
+            //Class Type Add
+            'CType.required'=>'Please select Class Type',
 
-            //Class Year
-            'CYear.required'=>'Class year is must',
-            'CYear.max'=>'Year is only 4 letters',
+            //Class Year Add
+            'CYear.required'=>'Class Year is must',
+            'CYear.max'=>'Class Year is only 4 letters',
 
-
-            'CTName.required'=>'Class teacher name is must',
+            //Class Teacher Name Add
+            'CTName.required'=>'Class Teacher Name is must',
         
         ]);
 
@@ -102,6 +102,31 @@ class MyController extends Controller
 
 
     public function editclass(Request $req) {
+
+        $req->validate([
+            'ECName'=>'required|min:4',
+            'ECType'=>'required',
+            'ECYear'=>'required|max:4',
+            'ECTName'=>'required',
+            
+
+        ],[
+            //Class name Add
+            'ECName.required'=>'Class Name is must',
+            'ECName.min'=>'Class Name Minimum 4 letters must',
+
+            //Class Type Add
+            'ECType.required'=>'Please select Class Yype',
+
+            //Class Year Add
+            'ECYear.required'=>'Class Year is must',
+            'ECYear.max'=>'Class Year is only 4 letters',
+
+            //Class Teacher Name Add
+            'ECTName.required'=>'Class Teacher Name is must',
+        
+        ]);
+
         DB::table('clas')->where('id' , $req->ECId)->update([
             'class_name' => $req->ECName,
             'class_type' => $req->ECType,

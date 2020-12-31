@@ -205,9 +205,10 @@
       <div class="container mt-2">
         @if($errors->any())
           @foreach($errors->all()  as $error)
-            <div class="alert alert-danger" role="alert">
-              {{$error}}
-            </div>
+          <div class="alert alert-warning alert-dismissible fade show align-bottom" role="alert">
+            <strong>Alert!  : </strong> {{$error}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
           @endforeach
         @endif
       </div>

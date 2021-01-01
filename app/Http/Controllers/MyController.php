@@ -60,7 +60,7 @@ class MyController extends Controller
         $req->validate([
             'CName'=>'required|min:4',
             'CType'=>'required',
-            'CYear'=>'required|min:4|max:4|integer',
+            'CYear'=>'required|integer|digits:4',
             'CTName'=>'required',
             
 
@@ -74,8 +74,7 @@ class MyController extends Controller
 
             //Class Year Add
             'CYear.required'=>'Class Year is must',
-            'CYear.max'=>'Class Year is 4 letters',
-            'CYear.min'=>'Class Year is 4 letters',
+            'CYear.digits'=>'Class Year is not valid',
             'CYear.integer'=>'Class Year is only number',
 
             //Class Teacher Name Add
@@ -108,7 +107,7 @@ class MyController extends Controller
         $req->validate([
             'ECName'=>'required|min:4',
             'ECType'=>'required',
-            'CYear'=>'required|min:4|max:4|integer',
+            'ECYear'=>'required|size:4|integer',
             'ECTName'=>'required',
             
 
@@ -122,9 +121,8 @@ class MyController extends Controller
 
             //Class Year Add
             'ECYear.required'=>'Class Year is must',
-            'ECYear.max'=>'Class Year is 4 letters',
-            'ECYear.min'=>'Class Year is 4 letters',
-            'CYear.integer'=>'Class Year is only number',
+            'ECYear.digits'=>'Class Year is not valid',
+            'ECYear.integer'=>'Class Year is only number',
 
             //Class Teacher Name Add
             'ECTName.required'=>'Class Teacher Name is must',
